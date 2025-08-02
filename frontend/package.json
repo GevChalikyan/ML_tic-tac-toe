@@ -4,7 +4,7 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "build": "echo \"Error: no build script specified\" && exit 1"
+    "build": "echo \"Error: no build script specified\""
   },
   "keywords": [],
   "author": "",
