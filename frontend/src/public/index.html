@@ -1,0 +1,110 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tic‑Tac‑Toe</title>
+  <style>
+    body {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: sans-serif;
+      padding-top: 2rem;
+    }
+    h1 {
+      margin-bottom: 1rem;
+    }
+    table.board {
+      border-collapse: collapse;
+      /* board draw animation */
+      animation: drawBoard 0.6s ease-out forwards;
+      opacity: 0;
+    }
+    table.board td {
+      width: 100px;
+      height: 100px;
+      border: 4px solid transparent;
+      position: relative;
+    }
+    
+    /* --- board outline --- */
+    table.board{
+      border-collapse: collapse;      /* keep cells touching */
+      border: 4px solid #000;         /* outer frame  */
+      animation: drawBoard 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    /* --- cell sizing --- */
+    table.board td{
+      width: 100px;
+      height: 100px;
+      position: relative;
+    }
+
+    /* --- vertical grid lines --- */
+    table.board td:not(:last-child){
+      border-right: 4px solid #000;
+    }
+
+    /* --- horizontal grid lines --- */
+    table.board tr:not(:last-child) td{
+      border-bottom: 4px solid #000;
+    }
+
+
+    @keyframes drawBoard {
+      to { opacity: 1; }
+    }
+
+    /* SVG marks sit absolutely */
+    .mark {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+    }
+    .x-mark line,
+    .o-mark circle {
+      stroke: #000;
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-dasharray: 200;
+      stroke-dashoffset: 180;
+    }
+    .x-mark line {
+      animation: drawMark 0.5s ease forwards;
+    }
+    .o-mark circle {
+      animation: drawMark 0.4s ease forwards;
+    }
+    @keyframes drawMark {
+      to { stroke-dashoffset: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Tic‑Tac‑Toe</h1>
+  <table class="board">
+    <tr>
+      <td class="cell" data-index="0"></td>
+      <td class="cell" data-index="1"></td>
+      <td class="cell" data-index="2"></td>
+    </tr>
+    <tr>
+      <td class="cell" data-index="3"></td>
+      <td class="cell" data-index="4"></td>
+      <td class="cell" data-index="5"></td>
+    </tr>
+    <tr>
+      <td class="cell" data-index="6"></td>
+      <td class="cell" data-index="7"></td>
+      <td class="cell" data-index="8"></td>
+    </tr>
+  </table>
+
+  <script src="index.js" defer></script>
+</body>
+</html>
